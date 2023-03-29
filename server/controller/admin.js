@@ -16,8 +16,8 @@ return jwt.sign({id},  process.env.JWT_SECRET, {
 /******** register ******/
 exports.register = async (req,res) =>{
 
-    console.log(req.body)
-    const {email,password,phone_no} = req.body
+    console.log(req.body) 
+    const {email,password} = req.body
  
     try {
    const existadmin = await Admin.findOne({email:req.body.email})

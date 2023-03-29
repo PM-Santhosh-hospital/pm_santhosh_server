@@ -1,12 +1,19 @@
 const express = require('express')
-const app = express()
 const mongoose = require('mongoose')
 const dotenv =  require('dotenv')
 const morgan = require('morgan');
 const cors = require('cors')
 const cookieSession = require('cookie-session');
 const path = require('path')
-const admin = require('./server/router/admin')
+const api = require('./server/router/admin')
+const blog = require('./server/router/blog')
+const testinomial = require('./server/router/testinomial')
+const banner = require('./server/router/banner')
+const doctor = require('./server/router/doctor')
+
+
+
+const app = express()
 
 const PORT = process.env.PORT || 5000
 dotenv.config()
@@ -34,10 +41,22 @@ mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology
 
     app.use('/static', express.static(path.join(__dirname, './server/uploads')))
 
+  app.use('/api', api)
 
-  app.use('/admin', admin)
+  app.use('/api', blog)
+
+  app.use('/api', testinomial)
+
+  app.use('/api', banner)
+
+  app.use('/api', doctor)
+  
 
 
+
+
+
+  
     
  const server = app.listen(PORT,function(err){
   if(err){

@@ -9,17 +9,15 @@ const {register, getOneAdmin, login, adminProfile,
 router.get('/admin',  getAllAdmin)
 router.get('/admin/:id',  getOneAdmin)
 
-router.post('/admin', register)
+router.post('/admin-register', register)
 
-router.post('/adminAuth', login)
+router.post('/admin-login', login)
 
-router.put('/admin/:id', updateAdmin)
+router.put('/update-admin/:id', updateAdmin)
 
 router.delete('/delete-admin/:id', deleteAdmin)
 
 router.get('/adminProfile',isAuthenticate, adminProfile)
 
  
-
-
 module.exports = router; 
