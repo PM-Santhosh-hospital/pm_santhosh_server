@@ -1,25 +1,32 @@
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
 
-const testinomialSchema = new Schema(
+const contactenquirySchema = new Schema(
   {
-    image: {
+    name: {
       type: String,
       trim: true,
       required: [true, "is required"],
     },
-    title: {
+
+    email: {
       type: String,
       trim: true,
       required: [true, "is required"],
     },
-    description: {
+
+    phone: {
+      type: Number,
+      required: [true, "is required"],
+    },
+
+    subject: {
       type: String,
       trim: true,
       required: [true, "is required"],
     },
-    author: {
+
+    message: {
       type: String,
       trim: true,
       required: [true, "is required"],
@@ -28,4 +35,4 @@ const testinomialSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Testinomial", testinomialSchema);
+module.exports = mongoose.model("ContactEnquiry", contactenquirySchema);

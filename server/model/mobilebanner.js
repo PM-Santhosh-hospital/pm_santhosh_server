@@ -2,24 +2,22 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const testinomialSchema = new Schema(
+const mobilebannerSchema = new Schema(
   {
-    image: {
+    banner_title: {
       type: String,
       trim: true,
-      required: [true, "is required"],
     },
-    title: {
+    banner_image: {
       type: String,
       trim: true,
-      required: [true, "is required"],
+    },
+    sub_title: {
+      type: String,
+      trim: true,
+      default: "",
     },
     description: {
-      type: String,
-      trim: true,
-      required: [true, "is required"],
-    },
-    author: {
       type: String,
       trim: true,
       required: [true, "is required"],
@@ -28,4 +26,4 @@ const testinomialSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Testinomial", testinomialSchema);
+module.exports = mongoose.model("mobileBanner", mobilebannerSchema);
