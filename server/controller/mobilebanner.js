@@ -7,7 +7,7 @@ exports.createmobileBanner = async (req, res) => {
     const banner = new mobileBanner(req.body);
     await banner.save();
 
-    res.status(201).json({ msg: "mobileBanner Created Successfully", banner });
+    res.status(201).json({ msg: "Mobile Banner Created Successfully", banner });
   } catch (error) {
     console.log(error);
     res.status(401).json({ err: "Something went Wrong!", error });
@@ -41,7 +41,7 @@ exports.updatemobileBanner = async (req, res) => {
   console.log(req.params);
   try {
     await mobileBanner.updateOne({ _id: req.params.id }, req.body);
-    res.status(201).json({ msg: "mobileBanner Updated Successfully" });
+    res.status(201).json({ msg: "Mobile Banner Updated Successfully" });
   } catch (error) {
     console.log(error);
     res.status(401).json({ err: "Something Went Wrong!!", error });
@@ -53,7 +53,7 @@ exports.deletemobileBanner = async (req, res) => {
   console.log(req.params.id);
   try {
     const banner = await mobileBanner.findByIdAndDelete({ _id: req.params.id });
-    res.status(201).json({ msg: "mobileBanner deleted Successfully", banner });
+    res.status(201).json({ msg: "Mobile Banner deleted Successfully", banner });
   } catch (error) {
     res.status(401).json({ err: "Something went Wrong!!", error });
   }
