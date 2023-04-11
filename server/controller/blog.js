@@ -28,14 +28,34 @@ exports.getAllBlog = async (req, res) => {
 /*************get one Blog */
 
 exports.getOneBlog = async (req, res) => {
+  const  id=req.params.id
+  console.log({id})
+  var ID=''
+  for (let i=0; i<id.length; i++)
+  {
+    if (id[i]==="_")
+ID=ID+' '
+else{
+  ID=ID+id[i]
+}}
+  // let i =0;
+  // while (i<id.length){
+  //   if(id[i]==='_'){
+  //     ID=ID+' '
+  //   }else{
+  //     ID=ID+id[i]
+  //   } 
+  //   i++
+  // }
+  
+  console.log({ID})
   try {
-    const blog = await Blog.findById(req.params.id);
+    const blog = await Blog.findOne({title:ID});
     res.status(201).json(blog);
   } catch (error) {
     res.status(401).json({ err: "Something Went Wrong!!", error });
   }
-};
-
+}
 /***********Update Blog */
 exports.updateBlog = async (req, res) => {
   console.log(req.params);
@@ -59,3 +79,15 @@ exports.deleteBlog = async (req, res) => {
     res.status(401).json({ err: "Something went Wrong!!", error });
   }
 };
+
+
+// ---------------------------------------
+// exports.getOneBlog = async (req, res) => {
+//   try {
+//     console.log(req.params.id)
+//     const blog = await Blog.findOne({title:req.params.id});
+//     res.status(201).json(blog);
+//   } catch (error) {
+//     res.status(401).json({ err: "Something Went Wrong!!", error });
+//   }
+// };
