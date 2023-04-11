@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 
 const mobilebannerSchema = new Schema(
   {
-    banner_title: {
+    mobilebanner_title: {
       type: String,
       trim: true,
     },
-    banner_image: {
+    mobilebanner_image: {
       type: String,
       trim: true,
     },

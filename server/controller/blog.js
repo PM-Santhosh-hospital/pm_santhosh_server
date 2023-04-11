@@ -25,7 +25,24 @@ exports.getAllBlog = async (req, res) => {
   }
 };
 
-/*************get one Blog */
+
+
+
+/**************Get one Blog for aAdmin *****************/
+exports.getOneBlogAdmin  = async (req,res)=>{
+  try{
+    const blog = await Blog.findById(req.params.id)
+    res.status(201).json(blog)
+  }
+  catch(error){
+    res.status(401).json({message:"Something Went Wrong"})
+  }
+}
+
+
+
+
+/*************get one Blog for front-end URL fetch on title*/
 
 exports.getOneBlog = async (req, res) => {
   const  id=req.params.id
