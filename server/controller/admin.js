@@ -10,7 +10,7 @@ const createToken = (id) => {
   });
 };
 
-/******** register ******/
+/****************** register *****************/
 exports.register = async (req, res) => {
   console.log(req.body);
   const { email, password } = req.body;

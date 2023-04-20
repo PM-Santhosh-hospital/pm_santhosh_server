@@ -17,7 +17,8 @@ exports.createBlog = async (req, res) => {
 /**********Get All Blog */
 exports.getAllBlog = async (req, res) => {
   try {
-    const blog = await Blog.find();
+    const blog = await Blog.find()
+    .sort({createdAt:-1});
     res.status(201).json(blog);
   } catch (error) {
     console.log(error);
@@ -97,14 +98,3 @@ exports.deleteBlog = async (req, res) => {
   }
 };
 
-
-// ---------------------------------------
-// exports.getOneBlog = async (req, res) => {
-//   try {
-//     console.log(req.params.id)
-//     const blog = await Blog.findOne({title:req.params.id});
-//     res.status(201).json(blog);
-//   } catch (error) {
-//     res.status(401).json({ err: "Something Went Wrong!!", error });
-//   }
-// };

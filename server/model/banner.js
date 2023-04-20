@@ -12,16 +12,16 @@ const bannerSchema = new Schema(
       type: String,
       trim: true,
     },
-    sub_title: {
-      type: String,
-      trim: true,
-      default: "",
-    },
-    description: {
-      type: String,
-      trim: true,
-      required: [true, "is required"],
-    },
+    // sub_title: {
+    //   type: String,
+    //   trim: true,
+    //   default: "",
+    // },
+    // description: {
+    //   type: String,
+    //   trim: true,
+    //   required: [true, "is required"],
+    // },
   },
   { timestamps: true }
 );
