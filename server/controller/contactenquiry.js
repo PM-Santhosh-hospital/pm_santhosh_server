@@ -31,6 +31,7 @@ exports.ContactEnquiry = async (req, res) => {
 exports.getAllContact = async (req, res) => {
   try {
     const enquiry = await ContactEnquiry.find().sort({ createdAt: -1 });
+    console.log(enquiry)
     res.status(201).json(enquiry);
   } catch (error) {
     console.log(error);
